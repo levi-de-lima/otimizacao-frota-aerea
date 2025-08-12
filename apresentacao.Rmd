@@ -2,7 +2,7 @@
 title: "Otimização de Alocação de Frota Aérea"
 subtitle: "Maximizando a Receita e a Eficiência"
 author: "Levi Gurgel de Lima, Yves Gabriel Queiroz de Sousa e Marco Aurélio Costa Rissardi"
-date: "TRA-48 Prof. Marcelo Guterres | `r format(Sys.Date(), '%d/%m/%Y')`"
+date: "TRA-48 | Prof. Marcelo Guterres | `r format(Sys.Date(), '%d/%m/%Y')`"
 output:
   ioslides_presentation:
     css: styles.css  # Opcional, para estilização personalizada
@@ -12,35 +12,63 @@ output:
 ## Introdução ao Problema
 
 - **O que será abordado:** Otimização da alocação de frota de aeronaves.
-- **O desafio:** Encontrar a melhor forma de usar uma frota limitada.
-- **Nosso objetivo:** Desenvolver um modelo para maximizar a receita ou o número de passageiros.
-
-## Contextualização do Problema
-
-- O setor de transporte aéreo é altamente competitivo e complexo.
-- A **alocação de frota** é uma decisão estratégica crucial, que impacta diretamente a receita e os custos operacionais.
-- **O Problema em foco:** Como alocar uma frota **limitada** de aeronaves em diversas rotas, considerando uma série de restrições operacionais?
+- **O desafio:** Encontrar a melhor forma de usar uma frota **limitada** de aeronaves para maximizar a **receita** ou o **número de passageiros**.
+- **Contexto:** O transporte aéreo é um setor complexo e competitivo, onde a **alocação de frota** é uma decisão estratégica.
 - **Consequências de uma Alocação Ineficiente:**
-    - Perda de receita.
-    - Aumento de custos.
-    - Insatisfação dos passageiros.
+  - Perda de receita e aumento de custos operacionais.
+  - Insatisfação dos passageiros.
 
-## Principais Achados na Literatura
+## O Problema e Seus Fundamentos
 
-- O problema de alocação de frota é um problema clássico de **otimização**.
-- **Modelagem Comum:** Frequentemente abordado com **Programação Inteira** ou **Programação Linear Inteira Mista (MIP)**.
-- **Objetivos Típicos:**
-    - Maximização de Receita.
-    - Maximização do Número de Passageiros.
-    - Minimização de Custos Operacionais.
+### Modelagem Clássica
+
+* O problema de alocação de frota é um problema clássico de **otimização**.
+* É conhecido na literatura como **Fleet Assignment Problem (FAP)**.
+* **Modelagem Comum:** Abordado com **Programação Inteira** ou **Programação Linear Inteira Mista (MIP)**.
+
+### O Trabalho Pioneiro (Anos 80)
+
+* **Abara (1989):** Um dos primeiros a modelar o FAP de forma realista.
+* **Foco:** Minimizar **custos de operação** (combustível, tripulação, etc.).
+* **Limitação:** Não considerava a receita ou a demanda de passageiros.
 
 ##
+### Restrições Típicas
 
-- **Restrições Consideradas:**
-    - **Frota:** Número limitado de aeronaves disponíveis.
-    - **Manutenção:** Agendamento de paradas obrigatórias.
-    - **Horários:** Restrições de partida e chegada, compatibilidade com o slot aeroportuário.
-    - **Equipamentos:** Compatibilidade da aeronave com a infraestrutura do aeroporto (pista, portões).
+* **Frota:** Número limitado de aeronaves disponíveis.
+* **Horários:** Restrições de partida e chegada, compatibilidade com o *slot* aeroportuário.
+* **Manutenção:** Agendamento de paradas obrigatórias.
+* **Equipamentos:** Compatibilidade da aeronave com a infraestrutura do aeroporto.
+
+## Maximizando o Lucro (Anos 90 em diante)
+
+### A Virada para a Receita
+
+* **Problema:** Minimizar custos não é suficiente. É preciso **maximizar o lucro** total (Receita - Custos).
+* A solução foi incluir a demanda de passageiros e os custos associados a ela.
+
+### Novos Conceitos
+
+* **Custos de Perda (Spill Costs):** Receita perdida quando a demanda excede a capacidade do avião.
+* **Custos de Assentos Vazios (Spoilage Costs):** Custo de usar uma aeronave grande demais, com assentos que poderiam ser vendidos em outra rota.
+
+##
+### Modelos de Otimização
+
+* **Subramanian et al. (1994):** Um dos trabalhos influentes que incorporou esses novos custos, transformando o problema em uma maximização de lucro.
+
+## O Futuro: Integração e Robustez
+
+### Superando a Simplicidade
+
+* O FAP não existe isoladamente. Ele impacta e é impactado por outras decisões.
+
+### Novos Desafios e Soluções
+
+* **Modelos Integrados:**
+    * **Otimização do FAP + Roteirização de Aeronaves:** Encontrar a melhor frota para os voos E a sequência de voos de cada aeronave.
+    * **Otimização do FAP + Programação de Manutenção:** Garantir que as aeronaves estejam nos locais certos para a manutenção obrigatória.
+* **Robustez:** Criar programações que resistam melhor a interrupções inesperadas (atrasos, mau tempo, etc.).
 
 ## Abordagens com Pesquisa Operacional
 
@@ -58,12 +86,12 @@ output:
 ##
 
 - **Métodos de Solução:**
-  - **Métodos Exatos:** Para problemas de menor escala, utilizaremos algoritmos de otimização como o **Branch-and-Bound**.
-  - **Heurísticas:** Para problemas maiores, podemos explorar heurísticas para encontrar soluções satisfatórias em tempo hábil.
+  - **Métodos Exatos:** Para problemas de menor escala, pode-se utilizar algoritmos de otimização como o **Branch-and-Bound**.
+  - **Heurísticas:** Para problemas maiores, pode-se explorar heurísticas para encontrar soluções satisfatórias em tempo hábil.
 
 ## Próximos Passos do Projeto
 
 - **Etapa 1:** Formalizar a **modelagem matemática** completa (função objetivo e todas as restrições).
 - **Etapa 2:** Coletar ou gerar um conjunto de dados simplificado para testes iniciais.
-- **Etapa 3:** Implementar o modelo usando um software ou pacote de otimização (ex: `lpSolve` no R ou `PuLP` em Python).
+- **Etapa 3:** Implementar o modelo usando o R.
 - **Etapa 4:** Análise dos resultados, validação do modelo e refinamento das restrições.

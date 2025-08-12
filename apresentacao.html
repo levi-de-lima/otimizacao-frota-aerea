@@ -3141,7 +3141,7 @@ ul.task-list{list-style: none;}
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">TRA-48 Prof. Marcelo Guterres | 12/08/2025</p>
+            <p style="margin-top: 6px; margin-left: -2px;">TRA-48 | Prof. Marcelo Guterres | 12/08/2025</p>
           </hgroup>
   </slide>
 
@@ -3149,50 +3149,87 @@ ul.task-list{list-style: none;}
 
 <ul>
 <li><strong>O que será abordado:</strong> Otimização da alocação de frota de aeronaves.</li>
-<li><strong>O desafio:</strong> Encontrar a melhor forma de usar uma frota limitada.</li>
-<li><strong>Nosso objetivo:</strong> Desenvolver um modelo para maximizar a receita ou o número de passageiros.</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Contextualização do Problema</h2></hgroup><article  id="contextualização-do-problema">
-
-<ul>
-<li>O setor de transporte aéreo é altamente competitivo e complexo.</li>
-<li>A <strong>alocação de frota</strong> é uma decisão estratégica crucial, que impacta diretamente a receita e os custos operacionais.</li>
-<li><strong>O Problema em foco:</strong> Como alocar uma frota <strong>limitada</strong> de aeronaves em diversas rotas, considerando uma série de restrições operacionais?</li>
+<li><strong>O desafio:</strong> Encontrar a melhor forma de usar uma frota <strong>limitada</strong> de aeronaves para maximizar a <strong>receita</strong> ou o <strong>número de passageiros</strong>.</li>
+<li><strong>Contexto:</strong> O transporte aéreo é um setor complexo e competitivo, onde a <strong>alocação de frota</strong> é uma decisão estratégica.</li>
 <li><strong>Consequências de uma Alocação Ineficiente:</strong>
 
 <ul>
-<li>Perda de receita.</li>
-<li>Aumento de custos.</li>
+<li>Perda de receita e aumento de custos operacionais.</li>
 <li>Insatisfação dos passageiros.</li>
 </ul></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Principais Achados na Literatura</h2></hgroup><article  id="principais-achados-na-literatura">
+</article></slide><slide class=""><hgroup><h2>O Problema e Seus Fundamentos</h2></hgroup><article  id="o-problema-e-seus-fundamentos">
+
+<h3>Modelagem Clássica</h3>
 
 <ul>
 <li>O problema de alocação de frota é um problema clássico de <strong>otimização</strong>.</li>
-<li><strong>Modelagem Comum:</strong> Frequentemente abordado com <strong>Programação Inteira</strong> ou <strong>Programação Linear Inteira Mista (MIP)</strong>.</li>
-<li><strong>Objetivos Típicos:</strong>
+<li>É conhecido na literatura como <strong>Fleet Assignment Problem (FAP)</strong>.</li>
+<li><strong>Modelagem Comum:</strong> Abordado com <strong>Programação Inteira</strong> ou <strong>Programação Linear Inteira Mista (MIP)</strong>.</li>
+</ul>
+
+<h3>O Trabalho Pioneiro (Anos 80)</h3>
 
 <ul>
-<li>Maximização de Receita.</li>
-<li>Maximização do Número de Passageiros.</li>
-<li>Minimização de Custos Operacionais.</li>
-</ul></li>
+<li><strong>Abara (1989):</strong> Um dos primeiros a modelar o FAP de forma realista.</li>
+<li><strong>Foco:</strong> Minimizar <strong>custos de operação</strong> (combustível, tripulação, etc.).</li>
+<li><strong>Limitação:</strong> Não considerava a receita ou a demanda de passageiros.</li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article  id="section">
 
-<ul>
-<li><strong>Restrições Consideradas:</strong>
+<h3>Restrições Típicas</h3>
 
 <ul>
 <li><strong>Frota:</strong> Número limitado de aeronaves disponíveis.</li>
+<li><strong>Horários:</strong> Restrições de partida e chegada, compatibilidade com o <em>slot</em> aeroportuário.</li>
 <li><strong>Manutenção:</strong> Agendamento de paradas obrigatórias.</li>
-<li><strong>Horários:</strong> Restrições de partida e chegada, compatibilidade com o slot aeroportuário.</li>
-<li><strong>Equipamentos:</strong> Compatibilidade da aeronave com a infraestrutura do aeroporto (pista, portões).</li>
+<li><strong>Equipamentos:</strong> Compatibilidade da aeronave com a infraestrutura do aeroporto.</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Maximizando o Lucro (Anos 90 em diante)</h2></hgroup><article  id="maximizando-o-lucro-anos-90-em-diante">
+
+<h3>A Virada para a Receita</h3>
+
+<ul>
+<li><strong>Problema:</strong> Minimizar custos não é suficiente. É preciso <strong>maximizar o lucro</strong> total (Receita - Custos).</li>
+<li>A solução foi incluir a demanda de passageiros e os custos associados a ela.</li>
+</ul>
+
+<h3>Novos Conceitos</h3>
+
+<ul>
+<li><strong>Custos de Perda (Spill Costs):</strong> Receita perdida quando a demanda excede a capacidade do avião.</li>
+<li><strong>Custos de Assentos Vazios (Spoilage Costs):</strong> Custo de usar uma aeronave grande demais, com assentos que poderiam ser vendidos em outra rota.</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article  id="section-1">
+
+<h3>Modelos de Otimização</h3>
+
+<ul>
+<li><strong>Subramanian et al. (1994):</strong> Um dos trabalhos influentes que incorporou esses novos custos, transformando o problema em uma maximização de lucro.</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>O Futuro: Integração e Robustez</h2></hgroup><article  id="o-futuro-integração-e-robustez">
+
+<h3>Superando a Simplicidade</h3>
+
+<ul>
+<li>O FAP não existe isoladamente. Ele impacta e é impactado por outras decisões.</li>
+</ul>
+
+<h3>Novos Desafios e Soluções</h3>
+
+<ul>
+<li><strong>Modelos Integrados:</strong>
+
+<ul>
+<li><strong>Otimização do FAP + Roteirização de Aeronaves:</strong> Encontrar a melhor frota para os voos E a sequência de voos de cada aeronave.</li>
+<li><strong>Otimização do FAP + Programação de Manutenção:</strong> Garantir que as aeronaves estejam nos locais certos para a manutenção obrigatória.</li>
 </ul></li>
+<li><strong>Robustez:</strong> Criar programações que resistam melhor a interrupções inesperadas (atrasos, mau tempo, etc.).</li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Abordagens com Pesquisa Operacional</h2></hgroup><article  id="abordagens-com-pesquisa-operacional">
@@ -3215,14 +3252,14 @@ ul.task-list{list-style: none;}
 </ul></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2></h2></hgroup><article  id="section-1">
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article  id="section-2">
 
 <ul>
 <li><strong>Métodos de Solução:</strong>
 
 <ul>
-<li><strong>Métodos Exatos:</strong> Para problemas de menor escala, utilizaremos algoritmos de otimização como o <strong>Branch-and-Bound</strong>.</li>
-<li><strong>Heurísticas:</strong> Para problemas maiores, podemos explorar heurísticas para encontrar soluções satisfatórias em tempo hábil.</li>
+<li><strong>Métodos Exatos:</strong> Para problemas de menor escala, pode-se utilizar algoritmos de otimização como o <strong>Branch-and-Bound</strong>.</li>
+<li><strong>Heurísticas:</strong> Para problemas maiores, pode-se explorar heurísticas para encontrar soluções satisfatórias em tempo hábil.</li>
 </ul></li>
 </ul>
 
@@ -3231,7 +3268,7 @@ ul.task-list{list-style: none;}
 <ul>
 <li><strong>Etapa 1:</strong> Formalizar a <strong>modelagem matemática</strong> completa (função objetivo e todas as restrições).</li>
 <li><strong>Etapa 2:</strong> Coletar ou gerar um conjunto de dados simplificado para testes iniciais.</li>
-<li><strong>Etapa 3:</strong> Implementar o modelo usando um software ou pacote de otimização (ex: <code>lpSolve</code> no R ou <code>PuLP</code> em Python).</li>
+<li><strong>Etapa 3:</strong> Implementar o modelo usando o R.</li>
 <li><strong>Etapa 4:</strong> Análise dos resultados, validação do modelo e refinamento das restrições.</li>
 </ul></article></slide>
 
