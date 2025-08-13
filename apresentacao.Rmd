@@ -95,3 +95,9 @@ output:
 - **Etapa 2:** Coletar ou gerar um conjunto de dados simplificado para testes iniciais.
 - **Etapa 3:** Implementar o modelo usando o R.
 - **Etapa 4:** Análise dos resultados, validação do modelo e refinamento das restrições.
+
+## Referências Bibliográficas
+
+* **Abara, J. (1989).** Applying Integer Linear Programming to the Fleet Assignment Problem. *Interfaces, 19*(4), 20-28.
+
+* **Subramanian, R., Scheff, R. P., Quillinan, J. D., Wiper, D. S., & Marsten, R. E. (1994).** Coldstart: Fleet Assignment at Delta Air Lines. *Interfaces, 24*(1), 104-120.
